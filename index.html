@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ERNOTE | ERADA PLUS</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo-mark"></div>
+      <div>
+        <h1>ERNOTE</h1>
+        <p>BY ERADA PLUS CO.LLC</p>
+      </div>
+    </div>
+
+    <nav>
+      <button class="side-link active" data-target="dashboard">لوحة التحكم<br><span>Dashboard</span></button>
+      <button class="side-link" data-target="sales">المبيعات<br><span>Sales</span></button>
+      <button class="side-link" data-target="contracts">العقود<br><span>Contracts</span></button>
+      <button class="side-link" data-target="maintenanceQuotes">عروض أسعار الصيانة<br><span>Maintenance Quotations</span></button>
+      <button class="side-link" data-target="reports">التقارير الفنية<br><span>Technical Reports</span></button>
+      <button class="side-link" data-target="accounting">المحاسبة<br><span>Accounting</span></button>
+      <button class="side-link" data-target="users">المستخدمون<br><span>Users</span></button>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="clock-card">
+        <div id="time">--:--:--</div>
+        <div id="date">--</div>
+      </div>
+      <div class="title">
+        <h2>مرحباً بك في لوحة التحكم</h2>
+        <p>نظام إدارة العملاء والمبيعات والعقود والصيانة</p>
+      </div>
+      <div class="user-card">
+        <div class="avatar">م</div>
+        <div><b>المدير العام</b><span>Administrator</span></div>
+      </div>
+    </header>
+
+    <section id="dashboard" class="page active">
+      <div class="grid-dashboard">
+        <section class="panel">
+          <div class="panel-title blue"><h3>العقود</h3><span>Contracts</span></div>
+          <div class="metric blue-card" data-open="contracts"><b id="totalContracts">128</b><span>عدد العقود الكلية<br>Total Contracts</span></div>
+          <div class="metric blue-card" data-open="contracts"><b id="monthlyVisits">45</b><span>الزيارات لهذا الشهر<br>Visits This Month</span></div>
+          <div class="metric blue-card" data-open="contracts"><b id="visitedCount">32</b><span>تمت الزيارة<br>Visited</span></div>
+          <div class="metric blue-card" data-open="maintenanceQuotes"><b id="needsQuote">18</b><span>يحتاج عرض سعر<br>Needs Quotation</span></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title purple"><h3>عروض أسعار الصيانة</h3><span>Maintenance Quotations</span></div>
+          <div class="metric purple-card" data-open="maintenanceQuotes"><b id="quotePrepared">36</b><span>تم تحرير عرض سعر<br>Quotation Prepared</span></div>
+          <div class="metric purple-card" data-open="maintenanceQuotes"><b id="awardedArchived">22</b><span>تم التعميد / الأرشيف<br>Awarded / Archived</span></div>
+          <div class="metric purple-card" data-open="maintenanceQuotes"><b id="awardedActive">12</b><span>تم التعميد نشط<br>Awarded Active</span></div>
+          <div class="metric purple-card" data-open="maintenanceQuotes"><b id="maintenanceDone">15</b><span>تم عمل الصيانة<br>Maintenance Done</span></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title green"><h3>المبيعات</h3><span>Sales Department</span></div>
+          <div class="metric green-card" data-open="sales"><b id="newQuotation">24</b><span>طلب عرض سعر جديد<br>New Quotation Request</span></div>
+          <div class="metric green-card" data-open="sales"><b id="inProgress">16</b><span>تحت التنفيذ<br>In Progress</span></div>
+          <div class="metric green-card" data-open="sales"><b id="quotationSent">12</b><span>تم إرسال عرض السعر<br>Quotation Sent</span><small>تذكير كل 3 أيام</small></div>
+          <div class="metric green-card" data-open="sales"><b id="salesAwarded">8</b><span>تم التعميد / الأرشيف<br>Awarded / Archived</span><small>تذكير شهري للأرشيف</small></div>
+        </section>
+
+        <section class="right-stack">
+          <div class="alert-card red" data-open="contracts"><b id="expiringContracts">7</b><span>عقود شارفت على الانتهاء<br>Contracts Expiring Soon<br><small>أقل من 15 يوم</small></span></div>
+          <div class="alert-card yellow" data-open="emergency"><b id="emergencyRequests">5</b><span>طلبات الطوارئ<br>Emergency Requests</span></div>
+          <div class="reports-mini" data-open="reports">
+            <h3>التقارير الفنية<br><span>Technical Reports</span></h3>
+            <div class="report-row"><b>Excel</b><span>ملف شامل لكل العملاء</span></div>
+            <div class="report-row"><b>PDF</b><span>تقرير PDF لكل عميل</span></div>
+          </div>
+        </section>
+
+        <section class="accounting-panel">
+          <div class="panel-title gold"><h3>قسم المحاسبة</h3><span>Accounting Department</span></div>
+          <div class="account-summary">
+            <div><span>القيمة الكلية للعقود</span><b id="totalValue">1,250,000 ر.س</b></div>
+            <div><span>العدد الكلي للعقود</span><b id="contractsCount">128</b></div>
+          </div>
+          <div class="payments">
+            <div class="payment"><h4>الدفعة الأولى<br><span>First Payment</span></h4><b>250,000</b><button class="paid">تم الاستلام</button></div>
+            <div class="payment"><h4>الدفعة الثانية<br><span>Second Payment</span></h4><b>250,000</b><button class="paid">تم السداد</button></div>
+            <div class="payment"><h4>الدفعة الثالثة<br><span>Third Payment</span></h4><b>250,000</b><button>في الانتظار</button></div>
+            <div class="payment"><h4>الدفعة الرابعة<br><span>Final Payment</span></h4><b>500,000</b><button>في الانتظار</button></div>
+          </div>
+        </section>
+
+        <section class="tasks-panel">
+          <h3>المهام اليوم<br><span>Today's Tasks</span></h3>
+          <ul id="taskList">
+            <li><span>زيارة موقع - عميل ABC</span><b>10:00 AM</b></li>
+            <li><span>متابعة عرض سعر - عميل XYZ</span><b>12:00 PM</b></li>
+            <li><span>صيانة دورية - عميل DEF</span><b>02:00 PM</b></li>
+          </ul>
+        </section>
+
+        <section class="roles-panel">
+          <button>المدير<br>Administrator</button>
+          <button>المهندس<br>Engineer</button>
+          <button>الفني<br>Technician</button>
+          <button>المحاسب<br>Accountant</button>
+        </section>
+      </div>
+    </section>
+
+    <section id="sales" class="page"><div class="table-card"><div class="table-head"><h3>المبيعات / Sales</h3><button id="addSalesBtn">+ إضافة عميل</button></div><table><thead><tr><th>العميل</th><th>الجوال</th><th>الخدمة</th><th>القيمة</th><th>الحالة</th><th>آخر متابعة</th></tr></thead><tbody id="salesTable"></tbody></table></div></section>
+    <section id="contracts" class="page"><div class="table-card"><div class="table-head"><h3>العقود / Contracts</h3><button id="addContractBtn">+ إضافة عقد</button></div><table><thead><tr><th>العميل</th><th>البداية</th><th>النهاية</th><th>القيمة</th><th>الزيارات</th><th>الحالة</th></tr></thead><tbody id="contractsTable"></tbody></table></div></section>
+    <section id="maintenanceQuotes" class="page"><div class="table-card"><div class="table-head"><h3>عروض أسعار الصيانة / Maintenance Quotations</h3><button id="addQuoteBtn">+ عرض صيانة</button></div><table><thead><tr><th>العميل</th><th>نوع الصيانة</th><th>قيمة العرض</th><th>الحالة</th><th>تذكير</th><th>إجراء</th></tr></thead><tbody id="quotesTable"></tbody></table></div></section>
+    <section id="reports" class="page"><div class="table-card"><div class="table-head"><h3>التقارير الفنية / Technical Reports</h3><button id="addReportBtn">+ تقرير</button></div><table><thead><tr><th>العميل</th><th>المهندس/الفني</th><th>التاريخ</th><th>Excel</th><th>PDF</th><th>ملاحظات</th></tr></thead><tbody id="reportsTable"></tbody></table></div></section>
+    <section id="accounting" class="page"><div class="table-card"><div class="table-head"><h3>المحاسبة / Accounting</h3><button id="addPaymentBtn">+ دفعة</button></div><table><thead><tr><th>العميل</th><th>رقم الدفعة</th><th>قيمة الدفعة</th><th>الحالة</th><th>تاريخ الاستحقاق</th></tr></thead><tbody id="paymentsTable"></tbody></table></div></section>
+    <section id="users" class="page"><div class="table-card"><div class="table-head"><h3>المستخدمون والصلاحيات / Users & Permissions</h3><button id="addUserBtn">+ مستخدم</button></div><table><thead><tr><th>الاسم</th><th>الدور</th><th>الصلاحيات</th><th>الحالة</th></tr></thead><tbody id="usersTable"></tbody></table></div></section>
+  </main>
+
+  <dialog id="modal"><form method="dialog" id="modalForm"><h3 id="modalTitle"></h3><div id="modalFields"></div><div class="modalActions"><button value="cancel" class="cancel">إلغاء</button><button id="saveModal" value="default">حفظ</button></div></form></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
