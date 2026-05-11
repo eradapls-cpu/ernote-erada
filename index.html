@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ERNOTE - ERADA PLUS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --black:#07111f;--black2:#0c1628;--navy:#102a43;--blue:#145da0;--blue2:#0b7cc3;--gold:#d6a73c;--gold2:#ffe29b;--white:#ffffff;--muted:#7d8da1;
+      --visit:#19a7ce;--sales:#2fb344;--account:#f0a928;--general:#7357ff;--contract:#e84855;--shadow:0 22px 60px rgba(7,17,31,.17);--radius:26px
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Cairo','Tajawal',Tahoma,Arial,sans-serif;background:radial-gradient(circle at top right,rgba(214,167,60,.24),transparent 28%),linear-gradient(135deg,#07111f 0%,#102a43 42%,#f5f8fc 42%,#ffffff 100%);color:var(--navy)}
+    .app{display:grid;grid-template-columns:300px 1fr;min-height:100vh}.side{background:linear-gradient(180deg,#060d19,#0d2139 52%,#102a43);color:#fff;padding:24px;position:sticky;top:0;height:100vh;box-shadow:var(--shadow);border-left:1px solid rgba(255,255,255,.08)}
+    .brand{display:flex;gap:13px;align-items:center;margin-bottom:18px}.logo{width:62px;height:62px;border-radius:22px;background:linear-gradient(135deg,var(--gold),var(--gold2));display:grid;place-items:center;color:#081321;font-weight:900;font-size:24px;box-shadow:0 16px 35px rgba(214,167,60,.26)}.brand h1{font-size:23px;margin:0;font-weight:900;letter-spacing:.5px}.brand p{margin:4px 0 0;color:#d8eaff;font-size:12px;font-weight:700}.clockPanel{border:1px solid rgba(214,167,60,.35);background:rgba(255,255,255,.08);border-radius:22px;padding:14px;margin-bottom:20px}.time{font-size:27px;font-weight:900;color:var(--gold2)}.date{font-size:13px;color:#dcecff;font-weight:700}.nav button{width:100%;border:0;border-radius:17px;background:transparent;color:#d9efff;padding:14px 15px;margin:6px 0;text-align:right;font-size:15px;font-weight:800;cursor:pointer;transition:.18s}.nav button.active,.nav button:hover{background:linear-gradient(90deg,rgba(214,167,60,.22),rgba(20,93,160,.16));color:#fff;transform:translateX(-3px)}
+    .main{padding:28px}.top{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:22px;background:rgba(255,255,255,.92);border:1px solid rgba(214,167,60,.2);border-radius:28px;padding:20px 22px;box-shadow:var(--shadow)}.top h2{margin:0;font-size:30px;font-weight:900}.top small{color:var(--muted);font-weight:700}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:15px;padding:12px 16px;font-weight:900;cursor:pointer;background:var(--blue);color:#fff;font-family:inherit;box-shadow:0 10px 24px rgba(20,93,160,.18)}.btn.red{background:#e84855}.btn.green{background:#2fb344}.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#101827}.btn.dark{background:#101827}.section{display:none}.section.active{display:block}
+    .board{display:grid;grid-template-columns:1.05fr 1.3fr 1.05fr .95fr;gap:18px;align-items:start}.column{border-radius:30px;padding:16px;background:rgba(255,255,255,.82);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.65)}.colHead{display:flex;align-items:center;justify-content:space-between;border-radius:22px;color:#fff;padding:14px 16px;margin-bottom:14px;font-weight:900}.colHead span{font-size:22px}.generalHead{background:linear-gradient(135deg,#34268c,var(--general))}.visitHead{background:linear-gradient(135deg,#0b7285,var(--visit))}.salesHead{background:linear-gradient(135deg,#087f5b,var(--sales))}.accountHead{background:linear-gradient(135deg,#9a6700,var(--account))}.contractHead{background:linear-gradient(135deg,#b4232f,var(--contract))}
+    .grid{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:18px}.stack{display:grid;gap:14px}.card{background:#fff;border:1px solid rgba(16,42,67,.08);border-radius:var(--radius);padding:19px;box-shadow:0 14px 38px rgba(7,17,31,.10);cursor:pointer;transition:.2s;position:relative;overflow:hidden;min-height:152px}.card:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(7,17,31,.16)}.card:before{content:"";position:absolute;inset:auto -34px -42px auto;width:130px;height:130px;border-radius:50%;opacity:.13;background:var(--accent)}.card .icon{width:48px;height:48px;border-radius:18px;display:grid;place-items:center;font-size:25px;background:linear-gradient(135deg,var(--accent),rgba(255,255,255,.25));color:#fff;box-shadow:0 12px 25px rgba(0,0,0,.12)}.card h3{margin:12px 0 9px;font-size:16px;font-weight:900;line-height:1.5}.num{font-size:33px;font-weight:900;color:#101827}.value{color:var(--muted);margin-top:5px;font-size:13px;font-weight:800}.card small{color:#8a97a8;font-weight:700}.visitCard{--accent:var(--visit)}.salesCard{--accent:var(--sales)}.accountCard{--accent:var(--account)}.generalCard{--accent:var(--general)}.contractCard{--accent:var(--contract)}.redGlow{border-color:rgba(232,72,85,.28)}.greenGlow{border-color:rgba(47,179,68,.28)}.goldGlow{border-color:rgba(240,169,40,.34)}
+    .tableWrap{background:#fff;border-radius:22px;box-shadow:var(--shadow);overflow:hidden;margin-top:20px}table{width:100%;border-collapse:collapse}th,td{padding:13px;border-bottom:1px solid #edf2f7;text-align:right;font-size:14px}th{background:#f0f7ff;color:#173b5f;font-weight:900}.modal{position:fixed;inset:0;background:rgba(8,25,43,.62);display:none;align-items:center;justify-content:center;padding:18px;z-index:5}.modal.show{display:flex}.box{width:min(1180px,96vw);max-height:88vh;overflow:auto;background:#fff;border-radius:30px;box-shadow:0 30px 80px rgba(0,0,0,.28);padding:22px}.boxHead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}.form{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;background:#f8fbff;padding:16px;border-radius:20px;margin-bottom:15px}input,select,textarea{width:100%;border:1px solid #d8e6f3;border-radius:13px;padding:11px;background:#fff;font-family:inherit;font-weight:700}textarea{min-height:42px}.close{background:#eef3f7;color:#102a43}.footer{margin-top:24px;color:#e8f2ff;background:rgba(7,17,31,.85);border-radius:18px;padding:12px;font-size:12px;text-align:center;font-weight:800}
+    @media(max-width:1200px){.board{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr 1fr}}@media(max-width:900px){.app{grid-template-columns:1fr}.side{height:auto;position:relative}.board,.grid{grid-template-columns:1fr}.form{grid-template-columns:1fr}.top{display:block}.actions{margin-top:12px}}
+
+    /* ERNOTE fixed design enhancements - logic only, same UI identity */
+    .column.generalCol{background:linear-gradient(180deg,rgba(115,87,255,.13),rgba(255,255,255,.86))}
+    .column.visitCol{background:linear-gradient(180deg,rgba(25,167,206,.14),rgba(255,255,255,.86))}
+    .column.salesCol{background:linear-gradient(180deg,rgba(47,179,68,.13),rgba(255,255,255,.86))}
+    .column.accountCol{background:linear-gradient(180deg,rgba(240,169,40,.15),rgba(255,255,255,.86))}
+    .column.contractCol{background:linear-gradient(180deg,rgba(232,72,85,.12),rgba(255,255,255,.86))}
+    .generalCompact .card{min-height:128px;padding:15px}
+    .generalCompact .card .icon{width:40px;height:40px;border-radius:15px;font-size:21px}
+    .generalCompact .num{font-size:29px}
+    .visitCard .value{display:none}
+    .badge{display:inline-block;padding:6px 9px;border-radius:999px;background:#eef6ff;color:#173b5f;font-weight:900;font-size:12px}
+    .miniText{font-size:12px;color:#7d8da1;font-weight:800;line-height:1.7}
+
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><div class="logo">E+</div><div><h1>ERNOTE</h1><p>BY ERADA PLUS CO.LLC</p></div></div>
+    <div class="clockPanel"><div class="time" id="clock">--:--</div><div class="date" id="today">--</div></div>
+    <div class="nav">
+      <button class="active" onclick="show('home',this)">🏠 عام / لوحة التحكم</button>
+      <button onclick="show('visits',this)">🛠 إدارة الزيارات الشهرية</button>
+      <button onclick="show('sales',this)">📈 إدارة المبيعات</button>
+      <button onclick="show('accounting',this)">💰 الحسابات والتحصيل</button>
+      <button onclick="show('contracts',this)">📄 العقود والتقارير</button>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="top"><div><h2 id="title">لوحة التحكم الرئيسية</h2><small>واجهة فاخرة مرتبة حسب المخطط: عام، إدارة الزيارات، إدارة المبيعات، الحسابات</small></div><div class="actions"><button class="btn green" onclick="openModal(currentModule)">+ إضافة عملية</button><button class="btn gold" onclick="seedData()">بيانات تجريبية</button><button class="btn red" onclick="clearAll()">تصفير النظام</button></div></div>
+    <section id="home" class="section active"><div id="homeGrid" class="board"></div></section>
+    <section id="visits" class="section"><div class="column"><div class="colHead visitHead">إدارة الزيارات الشهرية <span>🛠</span></div><div id="visitsGrid" class="grid"></div></div></section>
+    <section id="sales" class="section"><div class="column"><div class="colHead salesHead">إدارة المبيعات <span>📈</span></div><div id="salesGrid" class="grid"></div></div></section>
+    <section id="accounting" class="section"><div class="column"><div class="colHead accountHead">الحسابات والتحصيل <span>💰</span></div><div id="accountingGrid" class="grid"></div></div></section>
+    <section id="contracts" class="section"><div class="column"><div class="colHead contractHead">العقود والتقارير <span>📄</span></div><div id="contractsGrid" class="grid"></div></div></section>
+    <div class="footer">00966542800242 — ERADAPLS@GMAIL.COM</div>
+  </main>
+</div>
+<div class="modal" id="modal"><div class="box"><div class="boxHead"><h2 id="modalTitle">التفاصيل</h2><div><button class="btn gold" onclick="exportCSV()">تصدير Excel CSV</button> <button class="btn close" onclick="closeModal()">إغلاق</button></div></div><div class="form" id="form"></div><div class="tableWrap"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div></div></div>
+
+<script>
+const stages={
+ general:{title:'عام',icon:'🏠',cards:[['ALLC','جميع العقود','عدد العقود وقيمتها الإجمالية','📚'],['MAINT','صيانة دورية','ملخص الصيانات والزيارات','🧰'],['FIN','ملخص المحاسبة','قيمة التحصيل والدفعات','💳'],['ARCHG','الأرشيف','أعمال لم تتم أو لم ترصد أو لم يرسل عرض','🗄']]},
+ visits:{title:'إدارة الزيارات الشهرية',icon:'🛠',cards:[['A','زيارات شهرية جديدة','تظهر الزيارات المستحقة هذا الشهر','🗓'],['DONE','تمت الزيارة','الزيارات التي تم تنفيذها','✅'],['C','تم تجهيز عرض الصيانة','العروض الجاهزة للإرسال','🧾'],['D','تم إرسال العرض للعميل','بانتظار موافقة العميل','📤']]},
+ sales:{title:'إدارة المبيعات',icon:'📈',cards:[['A1','عميل جديد','طلبات العملاء الجدد','👤'],['B1','تم إرسال العرض','عروض تم إرسالها للعميل','📨'],['C1','متابعة العرض','تظهر تلقائياً بعد 3 أيام','⏳'],['D1','تم التعميد','عقود أو أوامر شراء معتمدة','✅']]},
+ accounting:{title:'الحسابات والتحصيل',icon:'💰',cards:[['INV','تحصيل الدفعات','دفعات مستحقة للتحصيل','💵'],['PAID','تم التحصيل','مبالغ تم تحصيلها','✅'],['DUE','دفعات متأخرة','دفعات تحتاج متابعة','🚨']]},
+ contracts:{title:'العقود والتقارير',icon:'📄',cards:[['ALL','جميع العقود','عدد العقود وقيمتها','📚'],['REPORT','التقارير الفنية','تقارير PDF وروابط مرفوعة','📎'],['EXP','عقود شارفت على الانتهاء','15 يوم أو أقل','🔴'],['ARCH','الأرشيف','لم يتم أو لم يرصد أو لم يرسل عرض','🗄']]}
+};
+let data=JSON.parse(localStorage.getItem('ernoteData')||'[]'), currentModule='visits', currentStage=null;
+const today0=()=>{let d=new Date();d.setHours(0,0,0,0);return d}
+const parseD=s=>{if(!s)return null;let d=new Date(s);return isNaN(d)?null:d}
+const fmt=d=>d?new Date(d).toISOString().slice(0,10):''
+function save(){localStorage.setItem('ernoteData',JSON.stringify(data));render()}
+function autoUpdate(){
+  const now=today0(), y=now.getFullYear(), m=now.getMonth();
+  data.filter(x=>x.module==='sales' && x.stage==='B1').forEach(x=>{let sd=parseD(x.quoteDate||x.dateISO); if(sd && Math.floor((now-sd)/86400000)>=3) x.stage='C1'});
+  data.filter(x=>x.module==='visits' && x.stage==='D').forEach(x=>{let sd=parseD(x.quoteDate||x.dateISO); if(sd && Math.floor((now-sd)/86400000)>=3){ x.followDue=true }});
+  data.filter(x=>x.module==='contracts').forEach(c=>{
+    let start=parseD(c.startDate), end=parseD(c.endDate); if(!start||!end) return;
+    let step=c.visitType==='quarterly'?3:1;
+    for(let d=new Date(start); d<=end; d.setMonth(d.getMonth()+step)){
+      if(d.getFullYear()===y && d.getMonth()===m){
+        let key=c.id+'-'+fmt(d);
+        if(!data.some(v=>v.module==='visits' && v.visitKey===key)){
+          data.push({id:Date.now()+Math.random(),module:'visits',stage:'A',client:c.client,phone:c.phone,location:c.location,engineer:c.engineer,amount:0,note:'زيارة مستحقة تلقائياً من العقد',date:new Date().toLocaleDateString('ar-SA'),dateISO:fmt(now),dueDate:fmt(d),contractId:c.id,visitKey:key});
+        }
+      }
+    }
+  });
+  localStorage.setItem('ernoteData',JSON.stringify(data));
+}
+function show(id,btn){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));btn&&btn.classList.add('active');currentModule=id==='home'?'visits':id;document.getElementById('title').textContent=id==='home'?'لوحة التحكم الرئيسية':stages[id].title;render()}
+function paidAmount(x){let n=0;if(x.pay1Status==='paid')n+=(+x.pay1||0);if(x.pay2Status==='paid')n+=(+x.pay2||0);return n}
+function itemValue(x,module){if(module==='accounting'&&x._paidAmount)return x._paidAmount; return +x.amount||0}
+function sum(arr,module){return arr.reduce((a,b)=>a+itemValue(b,module),0).toLocaleString('en-US')}
+function expiringContracts(){const n=today0();return data.filter(x=>x.module==='contracts'&&parseD(x.endDate)).filter(x=>{let diff=Math.ceil((parseD(x.endDate)-n)/86400000);return diff>=0&&diff<=15})}
+function accountingVirtual(stage){
+  let contracts=data.filter(x=>x.module==='contracts');
+  if(stage==='PAID')return contracts.map(x=>({...x,_paidAmount:paidAmount(x)})).filter(x=>x._paidAmount>0);
+  if(stage==='INV')return contracts.filter(x=>(+x.pay1||0)&&x.pay1Status!=='paid' || (+x.pay2||0)&&x.pay2Status!=='paid');
+  if(stage==='DUE')return data.filter(x=>x.module==='accounting'&&x.stage==='DUE');
+  return data.filter(x=>x.module==='accounting');
+}
+function count(module,stage){
+  if(module==='contracts'&&stage==='EXP')return expiringContracts();
+  if(module==='accounting')return accountingVirtual(stage);
+  return data.filter(x=>x.module===module && (stage?x.stage===stage:true));
+}
+function generalCount(stage){if(stage==='ALLC')return data.filter(x=>x.module==='contracts'||x.stage==='D1'); if(stage==='MAINT')return data.filter(x=>x.module==='visits'); if(stage==='FIN')return accountingVirtual('PAID'); if(stage==='ARCHG')return data.filter(x=>x.stage==='ARCH'); return []}
+function card(module,c){let arr=module==='general'?generalCount(c[0]):count(module,c[0]);let cls=(module==='general'?'generalCard':module==='visits'?'visitCard':module==='sales'?'salesCard':module==='accounting'?'accountCard':'contractCard')+' '+(c[0]==='EXP'||c[0]==='DUE'?'redGlow':c[0].includes('D')||c[0]==='PAID'||c[0]==='DONE'?'greenGlow':'goldGlow');let click=module==='general'?`openGeneral('${c[0]}')`:`openModal('${module}','${c[0]}')`;let val=module==='visits'?'':`<div class="value">القيمة: ${sum(arr,module)} ريال</div>`;return `<div class="card ${cls}" onclick="${click}"><div class="icon">${c[3]}</div><h3>${c[1]}</h3><div class="num">${arr.length}</div>${val}<small>${c[2]}</small></div>`}
+function renderGrid(module){document.getElementById(module+'Grid').innerHTML=stages[module].cards.map(c=>card(module,c)).join('')}
+function render(){autoUpdate();['visits','sales','accounting','contracts'].forEach(renderGrid);document.getElementById('homeGrid').innerHTML=`<div class="column generalCol"><div class="colHead generalHead">عام <span>🏠</span></div><div class="stack generalCompact">${stages.general.cards.map(c=>card('general',c)).join('')}</div></div><div class="column visitCol"><div class="colHead visitHead">إدارة الزيارات الشهرية <span>🛠</span></div><div class="stack">${stages.visits.cards.map(c=>card('visits',c)).join('')}</div></div><div class="column salesCol"><div class="colHead salesHead">إدارة المبيعات <span>📈</span></div><div class="stack">${stages.sales.cards.map(c=>card('sales',c)).join('')}</div></div><div class="column accountCol"><div class="colHead accountHead">الحسابات <span>💰</span></div><div class="stack">${stages.accounting.cards.map(c=>card('accounting',c)).join('')}</div></div>`}
+function openGeneral(stage){let map={ALLC:['contracts',null],MAINT:['visits',null],FIN:['accounting','PAID'],ARCHG:['contracts','ARCH']};openModal(map[stage][0],map[stage][1])}
+function openModal(module='visits',stage=null){currentModule=module;currentStage=stage;let mod=stages[module];let stageName=stage?(mod.cards.find(c=>c[0]===stage)||[])[1]:'إضافة عامة';document.getElementById('modalTitle').textContent=mod.title+' - '+stageName;document.getElementById('modal').classList.add('show');buildForm();buildTable()}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function baseFields(options){return `<input id="client" placeholder="اسم العميل"><input id="phone" placeholder="رقم الجوال"><input id="location" placeholder="الموقع"><input id="engineer" placeholder="المسؤول"><input id="amount" type="number" placeholder="قيمة العقد / العرض"><select id="stage">${options}</select>`}
+function buildForm(){let mod=stages[currentModule];let options=mod.cards.map(c=>`<option value="${c[0]}" ${currentStage===c[0]?'selected':''}>${c[1]}</option>`).join('');let extra='';
+ if(currentModule==='contracts')extra=`<input id="startDate" type="date" title="تاريخ بداية العقد"><input id="endDate" type="date" title="تاريخ نهاية العقد"><select id="visitType"><option value="monthly">زيارات شهرية</option><option value="quarterly">زيارات ربع سنوية</option></select><input id="pay1" type="number" placeholder="الدفعة الأولى"><select id="pay1Status"><option value="unpaid">الأولى غير مسددة</option><option value="paid">الأولى تم السداد</option></select><input id="pay2" type="number" placeholder="الدفعة الثانية"><select id="pay2Status"><option value="unpaid">الثانية غير مسددة</option><option value="paid">الثانية تم السداد</option></select>`;
+ if(currentModule==='sales'||currentModule==='visits')extra+=`<input id="quoteDate" type="date" title="تاريخ إرسال العرض / المتابعة">`;
+ document.getElementById('form').innerHTML=baseFields(options)+extra+`<textarea id="note" placeholder="ملاحظات / رابط تقرير PDF"></textarea><button class="btn green" onclick="addItem()">حفظ العملية</button>`}
+function addItem(){let item={id:Date.now(),module:currentModule,stage:document.getElementById('stage').value,client:val('client'),phone:val('phone'),location:val('location'),engineer:val('engineer'),amount:val('amount'),note:val('note'),date:new Date().toLocaleDateString('ar-SA'),dateISO:fmt(today0())};['startDate','endDate','visitType','pay1','pay1Status','pay2','pay2Status','quoteDate'].forEach(k=>{let e=document.getElementById(k); if(e)item[k]=e.value});data.push(item);save();buildTable();buildForm()}
+function val(id){return document.getElementById(id)?.value.trim()||''}
+function rowsForTable(){if(currentModule==='contracts'&&currentStage==='EXP')return expiringContracts(); if(currentModule==='accounting')return accountingVirtual(currentStage); return data.filter(x=>x.module===currentModule && (!currentStage||x.stage===currentStage))}
+function buildTable(){let mod=stages[currentModule];let rows=rowsForTable();let extraHead=currentModule==='contracts'?'<th>البداية</th><th>النهاية</th><th>الزيارات</th><th>د1</th><th>د2</th><th>المحصل</th>':(currentModule==='visits'?'<th>تاريخ الزيارة</th>':'<th>تاريخ العرض</th>');document.getElementById('thead').innerHTML='<tr><th>#</th><th>العميل</th><th>الجوال</th><th>الموقع</th><th>المسؤول</th><th>القيمة</th>'+extraHead+'<th>الحالة</th><th>ملاحظات</th><th>إجراء</th></tr>';document.getElementById('tbody').innerHTML=rows.map((x,i)=>{let extra=currentModule==='contracts'?`<td>${x.startDate||'-'}</td><td>${x.endDate||'-'}</td><td>${x.visitType==='quarterly'?'ربع سنوي':'سنوي/شهري'}</td><td><span class="badge">${x.pay1Status==='paid'?'تم':'غير'} ${(+x.pay1||0).toLocaleString('en-US')}</span></td><td><span class="badge">${x.pay2Status==='paid'?'تم':'غير'} ${(+x.pay2||0).toLocaleString('en-US')}</span></td><td>${paidAmount(x).toLocaleString('en-US')}</td>`:(currentModule==='visits'?`<td>${x.dueDate||x.dateISO||'-'}</td>`:`<td>${x.quoteDate||x.dateISO||'-'}</td>`);return `<tr><td>${i+1}</td><td>${x.client||'-'}</td><td>${x.phone||'-'}</td><td>${x.location||'-'}</td><td>${x.engineer||'-'}</td><td>${(+x.amount||0).toLocaleString('en-US')}</td>${extra}<td><select onchange="move(${x.id},this.value)">${mod.cards.map(c=>`<option value="${c[0]}" ${x.stage===c[0]?'selected':''}>${c[1]}</option>`).join('')}</select></td><td>${x.note||'-'}</td><td><button class="btn red" onclick="del(${x.id})">حذف</button></td></tr>`}).join('')||'<tr><td colspan="14">لا توجد بيانات</td></tr>'}
+function move(id,stage){let x=data.find(i=>i.id==id); if(x){x.stage=stage; save(); buildTable()}}
+function del(id){if(confirm('حذف السجل؟')){data=data.filter(x=>x.id!=id);save();buildTable()}}
+function exportCSV(){let rows=rowsForTable();let csv='client,phone,location,engineer,amount,stage,note,date,startDate,endDate,visitType,pay1,pay1Status,pay2,pay2Status,quoteDate
+'+rows.map(x=>[x.client,x.phone,x.location,x.engineer,x.amount,x.stage,x.note,x.date,x.startDate,x.endDate,x.visitType,x.pay1,x.pay1Status,x.pay2,x.pay2Status,x.quoteDate].map(v=>'"'+String(v||'').replaceAll('"','""')+'"').join(',')).join('
+');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='ernote-export.csv';a.click()}
+function seedData(){let now=today0(), end=new Date(now);end.setDate(end.getDate()+12);data=[{id:1,module:'contracts',stage:'ALL',client:'فندق فيو',phone:'0500000000',location:'المدينة',engineer:'أحمد',amount:12000,startDate:fmt(now),endDate:fmt(end),visitType:'monthly',pay1:6000,pay1Status:'paid',pay2:6000,pay2Status:'unpaid',note:'عقد صيانة سنوي',date:'اليوم',dateISO:fmt(now)},{id:2,module:'visits',stage:'DONE',client:'برج السلام',phone:'0551111111',location:'قباء',engineer:'محمد',amount:0,note:'تمت الزيارة بدون ملاحظات',date:'اليوم',dateISO:fmt(now)},{id:3,module:'sales',stage:'B1',client:'مجمع تجاري',phone:'0562222222',location:'العزيزية',engineer:'المبيعات',amount:5000,quoteDate:fmt(new Date(now-4*86400000)),note:'سيتحول تلقائياً للمتابعة',date:'اليوم',dateISO:fmt(now)}];save()}
+function clearAll(){if(confirm('سيتم حذف كل البيانات')){data=[];save()}}
+function updateClock(){let now=new Date();document.getElementById('clock').textContent=now.toLocaleTimeString('ar-SA',{hour:'2-digit',minute:'2-digit',second:'2-digit'});document.getElementById('today').textContent=now.toLocaleDateString('ar-SA',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}
+setInterval(updateClock,1000);updateClock();render();
+</script>
+</body>
+</html>
