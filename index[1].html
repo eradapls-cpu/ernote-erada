@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ERNOTE - ERADA PLUS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --black:#07111f;--black2:#0c1628;--navy:#102a43;--blue:#145da0;--blue2:#0b7cc3;--gold:#d6a73c;--gold2:#ffe29b;--white:#ffffff;--muted:#7d8da1;
+      --visit:#19a7ce;--sales:#2fb344;--account:#f0a928;--general:#7357ff;--contract:#e84855;--shadow:0 22px 60px rgba(7,17,31,.17);--radius:26px
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Cairo','Tajawal',Tahoma,Arial,sans-serif;background:radial-gradient(circle at top right,rgba(214,167,60,.24),transparent 28%),linear-gradient(135deg,#07111f 0%,#102a43 42%,#f5f8fc 42%,#ffffff 100%);color:var(--navy)}
+    .app{display:grid;grid-template-columns:300px 1fr;min-height:100vh}.side{background:linear-gradient(180deg,#060d19,#0d2139 52%,#102a43);color:#fff;padding:24px;position:sticky;top:0;height:100vh;box-shadow:var(--shadow);border-left:1px solid rgba(255,255,255,.08)}
+    .brand{display:flex;gap:13px;align-items:center;margin-bottom:18px}.logo{width:62px;height:62px;border-radius:22px;background:linear-gradient(135deg,var(--gold),var(--gold2));display:grid;place-items:center;color:#081321;font-weight:900;font-size:24px;box-shadow:0 16px 35px rgba(214,167,60,.26)}.brand h1{font-size:23px;margin:0;font-weight:900;letter-spacing:.5px}.brand p{margin:4px 0 0;color:#d8eaff;font-size:12px;font-weight:700}.clockPanel{border:1px solid rgba(214,167,60,.35);background:rgba(255,255,255,.08);border-radius:22px;padding:14px;margin-bottom:20px}.time{font-size:27px;font-weight:900;color:var(--gold2)}.date{font-size:13px;color:#dcecff;font-weight:700}.nav button{width:100%;border:0;border-radius:17px;background:transparent;color:#d9efff;padding:14px 15px;margin:6px 0;text-align:right;font-size:15px;font-weight:800;cursor:pointer;transition:.18s}.nav button.active,.nav button:hover{background:linear-gradient(90deg,rgba(214,167,60,.22),rgba(20,93,160,.16));color:#fff;transform:translateX(-3px)}
+    .main{padding:28px}.top{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:22px;background:rgba(255,255,255,.92);border:1px solid rgba(214,167,60,.2);border-radius:28px;padding:20px 22px;box-shadow:var(--shadow)}.top h2{margin:0;font-size:30px;font-weight:900}.top small{color:var(--muted);font-weight:700}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:15px;padding:12px 16px;font-weight:900;cursor:pointer;background:var(--blue);color:#fff;font-family:inherit;box-shadow:0 10px 24px rgba(20,93,160,.18)}.btn.red{background:#e84855}.btn.green{background:#2fb344}.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#101827}.btn.dark{background:#101827}.section{display:none}.section.active{display:block}
+    .board{display:grid;grid-template-columns:1.05fr 1.3fr 1.05fr .95fr;gap:18px;align-items:start}.column{border-radius:30px;padding:16px;background:rgba(255,255,255,.82);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.65)}.colHead{display:flex;align-items:center;justify-content:space-between;border-radius:22px;color:#fff;padding:14px 16px;margin-bottom:14px;font-weight:900}.colHead span{font-size:22px}.generalHead{background:linear-gradient(135deg,#34268c,var(--general))}.visitHead{background:linear-gradient(135deg,#0b7285,var(--visit))}.salesHead{background:linear-gradient(135deg,#087f5b,var(--sales))}.accountHead{background:linear-gradient(135deg,#9a6700,var(--account))}.contractHead{background:linear-gradient(135deg,#b4232f,var(--contract))}
+    .grid{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:18px}.stack{display:grid;gap:14px}.card{background:#fff;border:1px solid rgba(16,42,67,.08);border-radius:var(--radius);padding:19px;box-shadow:0 14px 38px rgba(7,17,31,.10);cursor:pointer;transition:.2s;position:relative;overflow:hidden;min-height:152px}.card:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(7,17,31,.16)}.card:before{content:"";position:absolute;inset:auto -34px -42px auto;width:130px;height:130px;border-radius:50%;opacity:.13;background:var(--accent)}.card .icon{width:48px;height:48px;border-radius:18px;display:grid;place-items:center;font-size:25px;background:linear-gradient(135deg,var(--accent),rgba(255,255,255,.25));color:#fff;box-shadow:0 12px 25px rgba(0,0,0,.12)}.card h3{margin:12px 0 9px;font-size:16px;font-weight:900;line-height:1.5}.num{font-size:33px;font-weight:900;color:#101827}.value{color:var(--muted);margin-top:5px;font-size:13px;font-weight:800}.card small{color:#8a97a8;font-weight:700}.visitCard{--accent:var(--visit)}.salesCard{--accent:var(--sales)}.accountCard{--accent:var(--account)}.generalCard{--accent:var(--general)}.contractCard{--accent:var(--contract)}.redGlow{border-color:rgba(232,72,85,.28)}.greenGlow{border-color:rgba(47,179,68,.28)}.goldGlow{border-color:rgba(240,169,40,.34)}
+    .tableWrap{background:#fff;border-radius:22px;box-shadow:var(--shadow);overflow:hidden;margin-top:20px}table{width:100%;border-collapse:collapse}th,td{padding:13px;border-bottom:1px solid #edf2f7;text-align:right;font-size:14px}th{background:#f0f7ff;color:#173b5f;font-weight:900}.modal{position:fixed;inset:0;background:rgba(8,25,43,.62);display:none;align-items:center;justify-content:center;padding:18px;z-index:5}.modal.show{display:flex}.box{width:min(1180px,96vw);max-height:88vh;overflow:auto;background:#fff;border-radius:30px;box-shadow:0 30px 80px rgba(0,0,0,.28);padding:22px}.boxHead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}.form{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;background:#f8fbff;padding:16px;border-radius:20px;margin-bottom:15px}input,select,textarea{width:100%;border:1px solid #d8e6f3;border-radius:13px;padding:11px;background:#fff;font-family:inherit;font-weight:700}textarea{min-height:42px}.close{background:#eef3f7;color:#102a43}.footer{margin-top:24px;color:#e8f2ff;background:rgba(7,17,31,.85);border-radius:18px;padding:12px;font-size:12px;text-align:center;font-weight:800}
+
+    .generalCard .icon{width:40px;height:40px;font-size:21px;border-radius:15px}
+    .column:has(.generalHead){background:linear-gradient(180deg,rgba(115,87,255,.10),rgba(255,255,255,.82))}
+    .column:has(.visitHead){background:linear-gradient(180deg,rgba(25,167,206,.10),rgba(255,255,255,.82))}
+    .column:has(.salesHead){background:linear-gradient(180deg,rgba(47,179,68,.10),rgba(255,255,255,.82))}
+    .column:has(.accountHead){background:linear-gradient(180deg,rgba(240,169,40,.12),rgba(255,255,255,.82))}
+    .column:has(.contractHead){background:linear-gradient(180deg,rgba(232,72,85,.10),rgba(255,255,255,.82))}
+    .emergencyCard{--accent:#ff3b30!important;border:2px solid rgba(255,59,48,.38)!important;background:linear-gradient(135deg,rgba(255,59,48,.10),#fff 74%)!important}
+    .visitCard .value{display:none}
+    .rolebar{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .rolechip{border:1px solid rgba(214,167,60,.35);background:rgba(255,255,255,.08);color:#fff;border-radius:14px;padding:8px 10px;font-weight:900;cursor:pointer;font-family:inherit}
+    .rolechip.active{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#101827}
+    .miniStat{display:block;font-size:12px;font-weight:900;color:#59687b;margin-top:3px}
+
+    @media(max-width:1200px){.board{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr 1fr}}@media(max-width:900px){.app{grid-template-columns:1fr}.side{height:auto;position:relative}.board,.grid{grid-template-columns:1fr}.form{grid-template-columns:1fr}.top{display:block}.actions{margin-top:12px}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><div class="logo">E+</div><div><h1>ERNOTE</h1><p>BY ERADA PLUS CO.LLC</p></div></div>
+    <div class="clockPanel"><div class="time" id="clock">--:--</div><div class="date" id="today">--</div><div class="rolebar"><button class="rolechip active" onclick="setRole(\'manager\',this)">مدير</button><button class="rolechip" onclick="setRole(\'accountant\',this)">محاسب</button><button class="rolechip" onclick="setRole(\'sales\',this)">مندوب</button><button class="rolechip" onclick="setRole(\'client\',this)">عميل</button></div></div>
+    <div class="nav">
+      <button class="active" onclick="show('home',this)">🏠 عام / لوحة التحكم</button>
+      <button onclick="show('visits',this)">🛠 إدارة الزيارات الشهرية</button>
+      <button onclick="show('sales',this)">📈 إدارة المبيعات</button>
+      <button onclick="show('accounting',this)">💰 الحسابات والتحصيل</button>
+      <button onclick="show('contracts',this)">📄 العقود والتقارير</button>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="top"><div><h2 id="title">لوحة التحكم الرئيسية</h2><small>مرحبا بك في إرادة بلس المحدودة</small></div><div class="actions"><button class="btn green" onclick="openModal(currentModule)">+ إضافة عملية</button><button class="btn gold" onclick="seedData()">بيانات تجريبية</button><button class="btn red" onclick="clearAll()">تصفير النظام</button></div></div>
+    <section id="home" class="section active"><div id="homeGrid" class="board"></div></section>
+    <section id="visits" class="section"><div class="column"><div class="colHead visitHead">إدارة الزيارات الشهرية <span>🛠</span></div><div id="visitsGrid" class="grid"></div></div></section>
+    <section id="sales" class="section"><div class="column"><div class="colHead salesHead">إدارة المبيعات <span>📈</span></div><div id="salesGrid" class="grid"></div></div></section>
+    <section id="accounting" class="section"><div class="column"><div class="colHead accountHead">الحسابات والتحصيل <span>💰</span></div><div id="accountingGrid" class="grid"></div></div></section>
+    <section id="contracts" class="section"><div class="column"><div class="colHead contractHead">العقود والتقارير <span>📄</span></div><div id="contractsGrid" class="grid"></div></div></section>
+    <div class="footer">00966542800242 — ERADAPLS@GMAIL.COM</div>
+  </main>
+</div>
+<div class="modal" id="modal"><div class="box"><div class="boxHead"><h2 id="modalTitle">التفاصيل</h2><div><button class="btn gold" onclick="exportCSV()">تصدير Excel CSV</button> <button class="btn close" onclick="closeModal()">إغلاق</button></div></div><div class="form" id="form"></div><div class="tableWrap"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div></div></div>
+
+<script>
+const stages={
+ general:{title:'عام',icon:'🏠',cards:[['ALLC','جميع العقود','عدد العقود وقيمتها الإجمالية','📚'],['MAINT','طلب صيانة طارئ','بلاغات وصيانة عاجلة','🚨'],['FIN','ملخص المحاسبة','إجمالي المحصل وعدد الدفعات','💳'],['ARCHG','الأرشيف','أعمال لم تتم أو لم ترصد أو لم يرسل عرض','🗄']]},
+ visits:{title:'إدارة الزيارات الشهرية',icon:'🛠',cards:[['A','زيارات شهرية جديدة','تظهر الزيارات المستحقة هذا الشهر','🗓'],['B','تمت الزيارة','الزيارات التي تم تنفيذها','✅'],['C','يوجد عطل يحتاج عرض سعر','زيارات بها أعطال تحتاج عرض سعر','🧾'],['D','تم إرسال العرض للعميل','بانتظار موافقة العميل','📤']]},
+ sales:{title:'إدارة المبيعات',icon:'📈',cards:[['A1','عميل جديد','طلبات العملاء الجدد','👤'],['B1','تم إرسال العرض','عروض تم إرسالها للعميل','📨'],['C1','متابعة العرض','تظهر تلقائياً بعد 3 أيام','⏳'],['D1','تم التعميد','عقود أو أوامر شراء معتمدة','✅']]},
+ accounting:{title:'الحسابات والتحصيل',icon:'💰',cards:[['P1DUE','تحصيل الدفعة الأولى','دفعات أولى مستحقة','💵'],['P1PAID','تم تحصيل الدفعة الأولى','دفعات أولى تم تحصيلها','✅'],['P2DUE','تحصيل الدفعة الثانية','دفعات ثانية مستحقة حسب التاريخ','💳'],['P2PAID','تم تحصيل الدفعة الثانية','دفعات ثانية تم تحصيلها','🏦']]},
+ contracts:{title:'العقود والتقارير',icon:'📄',cards:[['ALL','جميع العقود','عدد العقود وقيمتها','📚'],['REPORT','التقارير الفنية','تقارير PDF وروابط مرفوعة','📎'],['EXP','عقود شارفت على الانتهاء','15 يوم أو أقل','🔴'],['ARCH','الأرشيف','لم يتم أو لم يرصد أو لم يرسل عرض','🗄']]}
+};
+let data=JSON.parse(localStorage.getItem('ernoteData')||'[]'), currentModule='visits', currentStage=null, editId=null, currentRole=localStorage.getItem('ernoteRole')||'manager';
+function todayISO(){return new Date().toISOString().slice(0,10)}
+function parseDate(d){return d?new Date(d+'T00:00:00'):null}
+function addMonths(date, months){let d=new Date(date);d.setMonth(d.getMonth()+months);return d}
+function daysBetween(a,b){return Math.ceil((parseDate(b)-parseDate(a))/(1000*60*60*24))}
+function isCurrentMonth(iso){let d=parseDate(iso), n=new Date();return d && d.getFullYear()===n.getFullYear() && d.getMonth()===n.getMonth()}
+function dueNow(iso){return parseDate(iso) && parseDate(iso)<=parseDate(todayISO())}
+function saveRaw(){localStorage.setItem('ernoteData',JSON.stringify(data))}
+function save(){localStorage.setItem('ernoteData',JSON.stringify(data));runAutomation();localStorage.setItem('ernoteData',JSON.stringify(data));render()}
+function setRole(role,btn){currentRole=role;localStorage.setItem('ernoteRole',role);document.querySelectorAll('.rolechip').forEach(b=>b.classList.remove('active'));btn&&btn.classList.add('active');applyRole();render()}
+function applyRole(){
+  document.querySelectorAll('.nav button').forEach(b=>b.style.display='block');
+  const buttons=document.querySelectorAll('.nav button');
+  if(currentRole==='accountant'){buttons.forEach((b,i)=>b.style.display=(i===0||i===3)?'block':'none'); if(document.getElementById('accounting')) show('accounting',buttons[3]);}
+  if(currentRole==='sales'){buttons.forEach((b,i)=>b.style.display=(i===0||i===2)?'block':'none'); if(document.getElementById('sales')) show('sales',buttons[2]);}
+  if(currentRole==='client'){buttons.forEach((b,i)=>b.style.display=(i===0||i===1||i===4)?'block':'none'); if(document.getElementById('visits')) show('visits',buttons[1]);}
+}
+function runAutomation(){
+  const today=todayISO();
+  data.forEach(x=>{
+    if(x.module==='sales' && x.stage==='B1'){
+      let base=x.sentDate||x.createdAt||today;
+      if(daysBetween(base,today)>=3) x.stage='C1';
+    }
+  });
+  data.filter(x=>x.module==='contracts' && (x.stage==='ALL'||x.contractStart)).forEach(c=>{
+    if(c.contractEnd && daysBetween(today,c.contractEnd)<=15 && daysBetween(today,c.contractEnd)>=0) c.stage='EXP';
+    createPaymentFromContract(c,1,c.payment1Amount||Math.round((+c.amount||0)/2),c.payment1Date||c.contractStart||today);
+    let p2Date=c.payment2Date || (c.contractStart ? addMonths(parseDate(c.contractStart),6).toISOString().slice(0,10) : '');
+    if(p2Date) createPaymentFromContract(c,2,c.payment2Amount||Math.round((+c.amount||0)/2),p2Date);
+    generateVisits(c);
+  });
+}
+function createPaymentFromContract(c,no,amount,dueDate){
+  if(!amount||!dueDate) return;
+  let id='PAY-'+c.id+'-'+no;
+  if(data.some(x=>String(x.id)===String(id))) return;
+  if(no===2 && !dueNow(dueDate)) return;
+  data.push({id,linkedContract:c.id,module:'accounting',stage:no===1?'P1DUE':'P2DUE',client:c.client,phone:c.phone,location:c.location,engineer:'المحاسب',amount:+amount||0,note:(no===1?'الدفعة الأولى':'الدفعة الثانية')+' - مستحقة من عقد '+(c.client||''),date:todayISO(),dueDate,installment:no});
+}
+function generateVisits(c){
+  let start=parseDate(c.contractStart); if(!start) return;
+  let freq=c.visitType||'monthly';
+  let interval=freq==='quarterly'?3:1;
+  let end=parseDate(c.contractEnd)||addMonths(start,12);
+  let d=new Date(start), max=0;
+  while(d<=end && max<24){
+    let iso=d.toISOString().slice(0,10);
+    if(isCurrentMonth(iso) && !data.some(x=>String(x.id)==='VIS-'+c.id+'-'+iso)){
+      data.push({id:'VIS-'+c.id+'-'+iso,linkedContract:c.id,module:'visits',stage:'A',client:c.client,phone:c.phone,location:c.location,engineer:c.engineer||'',amount:0,note:'زيارة دورية مستحقة حسب العقد',date:todayISO(),visitDate:iso});
+    }
+    d=addMonths(d,interval); max++;
+  }
+}
+function visibleItems(){
+  let items=data;
+  if(currentRole==='accountant') items=items.filter(x=>x.module==='accounting'||x.module==='contracts');
+  if(currentRole==='sales') items=items.filter(x=>x.module==='sales' || x.engineer==='المندوب');
+  if(currentRole==='client') items=items.filter(x=>x.module==='visits'||x.module==='contracts'||x.module==='emergency');
+  return items;
+}
+function sum(arr){return arr.reduce((a,b)=>a+(+b.amount||0),0).toLocaleString('en-US')}
+function count(module,stage){return visibleItems().filter(x=>x.module===module && (stage?x.stage===stage:true))}
+function generalCount(stage){
+  let items=visibleItems();
+  if(stage==='ALLC')return items.filter(x=>x.module==='contracts'||x.stage==='D1');
+  if(stage==='MAINT')return items.filter(x=>x.module==='emergency'||x.emergency===true);
+  if(stage==='FIN')return items.filter(x=>x.module==='accounting');
+  if(stage==='ARCHG')return items.filter(x=>x.stage==='ARCH');
+  return [];
+}
+function card(module,c){
+  let arr=module==='general'?generalCount(c[0]):count(module,c[0]);
+  let cls=(module==='general'?'generalCard':module==='visits'?'visitCard':module==='sales'?'salesCard':module==='accounting'?'accountCard':'contractCard')+' '+(c[0]==='EXP'||c[0]==='DUE'?'redGlow':c[0].includes('D')||c[0].includes('PAID')?'greenGlow':'goldGlow')+(c[0]==='MAINT'?' emergencyCard':'');
+  let click=module==='general'?`openGeneral('${c[0]}')`:`openModal('${module}','${c[0]}')`;
+  let extra='';
+  if(module==='general'&&c[0]==='FIN'){
+    let paid=visibleItems().filter(x=>x.module==='accounting'&&(x.stage==='P1PAID'||x.stage==='P2PAID'));
+    let unpaid=visibleItems().filter(x=>x.module==='accounting'&&(x.stage==='P1DUE'||x.stage==='P2DUE'));
+    extra=`<span class="miniStat">المحصل: ${sum(paid)} ريال</span><span class="miniStat">دفعات محصلة: ${paid.length}</span><span class="miniStat">غير محصلة: ${unpaid.length}</span>`;
+  }
+  let showValue = module!=='visits';
+  return `<div class="card ${cls}" onclick="${click}"><div class="icon">${c[3]}</div><h3>${c[1]}</h3><div class="num">${arr.length}</div>${showValue?`<div class="value">القيمة: ${sum(arr)} ريال</div>`:''}${extra}<small>${c[2]}</small></div>`;
+}
+function renderGrid(module){document.getElementById(module+'Grid').innerHTML=stages[module].cards.map(c=>card(module,c)).join('')}
+function render(){runAutomation();saveRaw();['visits','sales','accounting','contracts'].forEach(renderGrid);document.getElementById('homeGrid').innerHTML=`<div class="column"><div class="colHead generalHead">عام <span>🏠</span></div><div class="stack">${stages.general.cards.map(c=>card('general',c)).join('')}</div></div><div class="column"><div class="colHead visitHead">إدارة الزيارات الشهرية <span>🛠</span></div><div class="stack">${stages.visits.cards.map(c=>card('visits',c)).join('')}</div></div><div class="column"><div class="colHead salesHead">إدارة المبيعات <span>📈</span></div><div class="stack">${stages.sales.cards.map(c=>card('sales',c)).join('')}</div></div><div class="column"><div class="colHead accountHead">الحسابات <span>💰</span></div><div class="stack">${stages.accounting.cards.map(c=>card('accounting',c)).join('')}</div></div>`}
+function show(id,btn){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));btn&&btn.classList.add('active');currentModule=id==='home'?'visits':id;document.getElementById('title').textContent=id==='home'?'لوحة التحكم الرئيسية':stages[id].title;render()}
+function openGeneral(stage){let map={ALLC:['contracts',null],MAINT:['emergency',null],FIN:['accounting',null],ARCHG:['contracts','ARCH']};openModal(map[stage][0],map[stage][1])}
+function moduleTitle(module){return stages[module]?.title || 'طلبات الصيانة الطارئة'}
+function moduleCards(module){return stages[module]?.cards || [['NEW','طلب جديد','بلاغ طارئ جديد','🚨'],['DONE','تم التنفيذ','طلبات طارئة منفذة','✅']]}
+function openModal(module='visits',stage=null){currentModule=module;currentStage=stage;editId=null;let cards=moduleCards(module);let stageName=stage?(cards.find(c=>c[0]===stage)||[])[1]:'إضافة عامة';document.getElementById('modalTitle').textContent=moduleTitle(module)+' - '+stageName;document.getElementById('modal').classList.add('show');buildForm();buildTable()}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function buildForm(item=null){
+  let cards=moduleCards(currentModule);
+  let options=cards.map(c=>`<option value="${c[0]}" ${(item?.stage||currentStage)===c[0]?'selected':''}>${c[1]}</option>`).join('');
+  let contractFields=currentModule==='contracts'?`
+    <input id="contractStart" type="date" value="${item?.contractStart||''}" title="تاريخ بداية العقد">
+    <input id="contractEnd" type="date" value="${item?.contractEnd||''}" title="تاريخ نهاية العقد">
+    <select id="visitType"><option value="monthly" ${(item?.visitType||'monthly')==='monthly'?'selected':''}>زيارات شهرية</option><option value="quarterly" ${item?.visitType==='quarterly'?'selected':''}>زيارات ربع سنوية</option></select>
+    <input id="payment1Amount" type="number" value="${item?.payment1Amount||''}" placeholder="قيمة الدفعة الأولى">
+    <input id="payment1Date" type="date" value="${item?.payment1Date||item?.contractStart||''}" title="تاريخ الدفعة الأولى">
+    <input id="payment2Amount" type="number" value="${item?.payment2Amount||''}" placeholder="قيمة الدفعة الثانية">
+    <input id="payment2Date" type="date" value="${item?.payment2Date||''}" title="تاريخ الدفعة الثانية">
+  `:'';
+  let salesFields=currentModule==='sales'?`<input id="sentDate" type="date" value="${item?.sentDate||''}" title="تاريخ إرسال العرض">`:'';
+  document.getElementById('form').innerHTML=`
+    <input id="client" placeholder="اسم العميل" value="${item?.client||''}">
+    <input id="phone" placeholder="رقم الجوال" value="${item?.phone||''}">
+    <input id="location" placeholder="الموقع" value="${item?.location||''}">
+    <input id="engineer" placeholder="المسؤول" value="${item?.engineer||''}">
+    <input id="amount" type="number" placeholder="القيمة" value="${item?.amount||''}">
+    <select id="stage">${options}</select>
+    ${contractFields}${salesFields}
+    <textarea id="note" placeholder="ملاحظات / رابط تقرير PDF">${item?.note||''}</textarea>
+    <button class="btn green" onclick="${item?'updateItem()':'addItem()'}">${item?'تحديث البيانات':'حفظ العملية'}</button>
+    ${item?'<button class="btn dark" onclick="cancelEdit()">إلغاء التعديل</button>':''}`;
+}
+function getFormItem(existing={}){
+  let item={...existing,module:currentModule,stage:document.getElementById('stage').value,client:val('client'),phone:val('phone'),location:val('location'),engineer:val('engineer'),amount:val('amount'),note:val('note'),updatedAt:todayISO()};
+  if(!item.id)item.id=Date.now();
+  if(!item.createdAt)item.createdAt=todayISO();
+  if(currentModule==='contracts'){
+    item.contractStart=val('contractStart'); item.contractEnd=val('contractEnd'); item.visitType=val('visitType');
+    item.payment1Amount=val('payment1Amount'); item.payment1Date=val('payment1Date')||item.contractStart;
+    item.payment2Amount=val('payment2Amount'); item.payment2Date=val('payment2Date');
+  }
+  if(currentModule==='sales') item.sentDate=val('sentDate')||todayISO();
+  if(currentModule==='emergency') item.emergency=true;
+  return item;
+}
+function addItem(){data.push(getFormItem());save();buildTable();buildForm()}
+function updateItem(){let idx=data.findIndex(x=>String(x.id)===String(editId)); if(idx>-1){data[idx]=getFormItem(data[idx]); editId=null; save(); buildTable(); buildForm();}}
+function editItem(id){let item=data.find(x=>String(x.id)===String(id)); if(item){editId=id; buildForm(item);}}
+function cancelEdit(){editId=null;buildForm()}
+function val(id){return document.getElementById(id)?.value.trim()||''}
+function buildTable(){
+  let cards=moduleCards(currentModule);
+  let rows=visibleItems().filter(x=>x.module===currentModule && (!currentStage||x.stage===currentStage));
+  document.getElementById('thead').innerHTML='<tr><th>#</th><th>العميل</th><th>الجوال</th><th>الموقع</th><th>المسؤول</th><th>القيمة</th><th>الحالة</th><th>التاريخ</th><th>ملاحظات</th><th>إجراء</th></tr>';
+  document.getElementById('tbody').innerHTML=rows.map((x,i)=>`<tr><td>${i+1}</td><td>${x.client||'-'}</td><td>${x.phone||'-'}</td><td>${x.location||'-'}</td><td>${x.engineer||'-'}</td><td>${(+x.amount||0).toLocaleString('en-US')}</td><td><select onchange="move('${x.id}',this.value)">${cards.map(c=>`<option value="${c[0]}" ${x.stage===c[0]?'selected':''}>${c[1]}</option>`).join('')}</select></td><td>${x.dueDate||x.visitDate||x.contractStart||x.date||'-'}</td><td>${x.note||'-'}</td><td><button class="btn gold" onclick="editItem('${x.id}')">تعديل</button> <button class="btn red" onclick="del('${x.id}')">حذف</button></td></tr>`).join('')||'<tr><td colspan="10">لا توجد بيانات</td></tr>';
+}
+function move(id,stage){
+  let x=data.find(i=>String(i.id)===String(id));
+  if(x){
+    x.stage=stage;
+    if(stage==='P1PAID'||stage==='P2PAID'){x.paidDate=todayISO();x.note=(x.note||'')+' | تم التحصيل'}
+    if(stage==='B'||stage==='DONE') x.completedDate=todayISO();
+    save(); buildTable();
+  }
+}
+function del(id){if(confirm('حذف السجل؟')){data=data.filter(x=>String(x.id)!==String(id));save();buildTable()}}
+function exportCSV(){
+  let rows=visibleItems().filter(x=>x.module===currentModule && (!currentStage||x.stage===currentStage));
+  let csv='client,phone,location,engineer,amount,stage,date,dueDate,contractStart,contractEnd,note\n'+rows.map(x=>[x.client,x.phone,x.location,x.engineer,x.amount,x.stage,x.date,x.dueDate,x.contractStart,x.contractEnd,x.note].map(v=>'"'+String(v||'').replaceAll('"','""')+'"').join(',')).join('\n');
+  let a=document.createElement('a');a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:'text/csv;charset=utf-8'}));a.download=(currentModule||'ernote')+'-export.csv';a.click();
+}
+function seedData(){
+  let start=todayISO(); let end=addMonths(parseDate(start),12).toISOString().slice(0,10); let p2=addMonths(parseDate(start),6).toISOString().slice(0,10);
+  data=[
+    {id:101,module:'contracts',stage:'ALL',client:'فندق فيو',phone:'0500000000',location:'المدينة',engineer:'أحمد',amount:12000,contractStart:start,contractEnd:end,visitType:'monthly',payment1Amount:6000,payment1Date:start,payment2Amount:6000,payment2Date:p2,note:'عقد صيانة سنوي',createdAt:start},
+    {id:102,module:'sales',stage:'B1',client:'مجمع تجاري',phone:'0562222222',location:'العزيزية',engineer:'المندوب',amount:5000,note:'تم إرسال العرض',sentDate:new Date(Date.now()-4*86400000).toISOString().slice(0,10),createdAt:start},
+    {id:103,module:'emergency',stage:'NEW',client:'عميل طارئ',phone:'0555555555',location:'قباء',engineer:'الفني',amount:0,note:'بلاغ طارئ من العميل',date:start,emergency:true}
+  ];
+  save();
+}
+function clearAll(){if(confirm('سيتم حذف كل البيانات')){data=[];save()}}
+function updateClock(){let now=new Date();document.getElementById('clock').textContent=now.toLocaleTimeString('ar-SA',{hour:'2-digit',minute:'2-digit',second:'2-digit'});document.getElementById('today').textContent=now.toLocaleDateString('ar-SA',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}
+setInterval(updateClock,1000);updateClock();render();
+document.querySelectorAll('.rolechip').forEach(b=>{b.classList.remove('active'); if((currentRole==='manager'&&b.textContent.includes('مدير'))||(currentRole==='accountant'&&b.textContent.includes('محاسب'))||(currentRole==='sales'&&b.textContent.includes('مندوب'))||(currentRole==='client'&&b.textContent.includes('عميل'))) b.classList.add('active')});
+applyRole();
+</script>
+
+</body>
+</html>
